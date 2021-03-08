@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Model"
+                   namespace="Model">
+
+  <class name="Album" table="album">
+    <id name="Id" column="album_id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Nom" column="album_nom"/>
+    <property name="ImageCouverture" column="album_imagecouverture"/>
+    <property name="Serie" column="album_serie"/>
+    <property name="Auteurs" column="album_auteurs"/>
+    <property name="Categorie" column="album_categorie"/>
+    <property name="Genre" column="album_genre"/>
+    <property name="Editeur" column="album_editeur"/>
+    <set name="Possesseurs" table="mesAlbums">
+      <key column="album_id"/>
+      <many-to-many class="Utilisateur" column="utilisateur_id"/>
+    </set>
+    <set name="PotentielsPossesseurs" table="mesSouhaits">
+      <key column="album_id"/>
+      <many-to-many class="Utilisateur" column="utilisateur_id"/>
+    </set>
+    <property name ="CorrespondALaRecherche" column="album_correspondALaRecherche"/>
+  </class>
+
+</hibernate-mapping>
