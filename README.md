@@ -1,5 +1,5 @@
 # Pook
-Album management Winform application 
+Album management Winform application. 
 
 Here some pages of the project :
 
